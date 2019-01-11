@@ -16,6 +16,7 @@ tileset:
     - layers/housenumber/housenumber.yaml
     - layers/poi/poi.yaml
     - layers/aerodrome_label/aerodrome_label.yaml
+    - layers/bicycle_routes/bicycle_routes.yaml
   name: OpenMapTiles
   version: 3.9.0
   id: openmaptiles

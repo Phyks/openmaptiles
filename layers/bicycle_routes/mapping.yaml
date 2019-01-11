@@ -1,0 +1,28 @@
+tables:
+# etldoc: imposm3 -> osm_bicycle_route_member
+  bicycle_route_member:
+    type: relation_member
+    columns:
+    - name: osm_id
+      type: id
+    - name: member
+      type: member_id
+    - name: role
+      type: member_role
+    - name: type
+      type: member_type
+    - name: network
+      key: network
+      type: string
+    - name: name
+      key: name
+      type: string
+    relation_types: [route]
+    mapping:
+      route:
+        - bicycle
+      network:
+        - lcn
+        - rcn
+        - ncn
+        - icn
