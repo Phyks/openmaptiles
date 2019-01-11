@@ -173,6 +173,15 @@ tables:
     - *public_transport
     - *man_made
     - *surface
+    - name: bicycle
+      key: bicycle
+      type: string
+    - name: foot
+      key: foot
+      type: string
+    - name: horse
+      key: horse
+      type: string
     mapping:
       highway:
       - motorway

@@ -52,3 +52,30 @@ CREATE OR REPLACE FUNCTION surface_value(surface TEXT) RETURNS TEXT AS $$
         ELSE NULL
     END;
 $$ LANGUAGE SQL IMMUTABLE STRICT;
+
+-- Limit bicycle to only the most important positive values
+CREATE OR REPLACE FUNCTION bicycle_value(bicycle TEXT) RETURNS BOOL AS $$
+    SELECT CASE
+        WHEN bicycle IN ('yes', 'designated') THEN true
+	WHEN bicycle = '' THEN NULL
+        ELSE false
+    END;
+$$ LANGUAGE SQL IMMUTABLE STRICT;
+
+-- Limit bicycle to only the most important positive values
+CREATE OR REPLACE FUNCTION foot_value(foot TEXT) RETURNS BOOL AS $$
+    SELECT CASE
+        WHEN foot IN ('yes', 'designated') THEN true
+	WHEN foot = '' THEN NULL
+        ELSE false
+    END;
+$$ LANGUAGE SQL IMMUTABLE STRICT;
+
+-- Limit bicycle to only the most important positive values
+CREATE OR REPLACE FUNCTION horse_value(horse TEXT) RETURNS BOOL AS $$
+    SELECT CASE
+        WHEN horse IN ('yes', 'designated') THEN true
+	WHEN horse = '' THEN NULL
+        ELSE false
+    END;
+$$ LANGUAGE SQL IMMUTABLE STRICT;
