@@ -1,0 +1,52 @@
+tables:
+# etldoc: imposm3 -> osm_bicycle_route_metadata
+  bicycle_route_metadata:
+    type: relation
+    columns:
+    - name: osm_id
+      type: id
+    - name: network
+      key: network
+      type: string
+    - name: ref
+      key: ref
+      type: string
+    - name: name
+      key: name
+      type: string
+    - name: short_name
+      key: short_name
+      type: string
+    relation_types: [route]
+    mapping:
+      route:
+        - bicycle
+      network:
+        - lcn
+        - rcn
+        - ncn
+        - icn
+
+# etldoc: imposm3 -> osm_bicycle_route_member
+  bicycle_route_member:
+    type: relation_member
+    columns:
+    - name: osm_id
+      type: id
+    - name: member
+      type: member_id
+    - name: role
+      type: member_role
+    - name: type
+      type: member_type
+    - name: geometry
+      type: geometry
+    relation_types: [route]
+    mapping:
+      route:
+        - bicycle
+      network:
+        - lcn
+        - rcn
+        - ncn
+        - icn
