@@ -1,0 +1,31 @@
+layer:
+  id: "bicycle_routes"
+  description: |
+      **bicycle_routes** contains bicycle routes lines.
+      This layer is directly derived from the OSM routes for bicycle relations.
+  buffer_size: 4
+  srs: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over
+  fields:
+    network:
+      description: |
+          Network of the cycle route (local, regional, national, international).
+          Class is derived from the value of the
+          [`network`](https://wiki.openstreetmap.org/wiki/Cycle_routes#Relations)
+          tag.
+      values:
+      - lcn
+      - rcn
+      - ncn
+      - icn
+    name:
+      description: |
+        The original value of the `name` tag on the route.
+  datasource:
+    geometry_field: geometry
+    srid: 900913
+    query: (SELECT geometry, network FROM layer_bicycle_routes(!bbox!, z(!scale_denominator!))) AS t
+schema:
+  - ./layer.sql
+datasources:
+  - type: imposm3
+    mapping_file: ./mapping.yaml
