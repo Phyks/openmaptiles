@@ -11,7 +11,7 @@ RETURNS TABLE(osm_id bigint, geometry geometry, network text) AS $$
 	    osm_bicycle_route_member.geometry AS geometry,
 	    osm_bicycle_route_metadata.network AS network
         FROM osm_bicycle_route_member
-	INNER JOIN bicycle_route_metadata ON osm_bicycle_route_member.osm_id=bicycle_route_metadata.osm_id 
+	INNER JOIN osm_bicycle_route_metadata ON osm_bicycle_route_member.osm_id=osm_bicycle_route_metadata.osm_id
     ) AS zoom_levels
     WHERE geometry && bbox;
 $$ LANGUAGE SQL IMMUTABLE;
